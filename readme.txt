@@ -23,11 +23,6 @@
     yaya-shiori
       https://github.com/YAYA-shiori/yaya-shiori
 
-□フリーシェル「p007（耳尻尾bb）」を使用しています。
-
-    猫ボトル/catbottle
-      http://catbottle.sakura.ne.jp/
-
 □上記以外のテキストファイル、辞書ファイルの類いについて
 
   著作者人格権はDonに帰属します。
