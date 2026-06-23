@@ -1,0 +1,124 @@
+//******************************************************************************
+// required event
+//******************************************************************************
+OnFirstBoot          { OnBoot() }
+OnShellChanged       { '\1\s[10]\0\s[0]なー。\e' }
+OnWindowStateRestore { '\1\s[10]\0\s[0]\e' }
+OnGhostChanged       { OnBoot() }
+OnBoot
+{
+	"\![execute,websocket,%(sys.fnc.getRelayURL()),--async=nostr]"
+	--
+	'\1\s[10]'
+	--
+	'\0\s[0]にゃ。'
+	'\0\s[0]にゃー。'
+	'\0\s[0]にゃーん。'
+	--
+	'\e'
+}
+OnClose
+{
+	"\![close,websocket,%(sys.fnc.getRelayURL())]"
+	--
+	'\1\s[10]'
+	--
+	'\0\s[0]にゃー。'
+	'\0\s[0]にゃーん。'
+	'\0\s[0]えんいー。'
+	--
+	'\_w[500]\-\e'
+}
+sys.fnc.getRelayURL
+{
+	'wss://yabu.me/'
+}
+
+//******************************************************************************
+// update event
+//******************************************************************************
+OnUpdateBegin    { '\0\s[0]\_qUpdate Begin.\_q\e' }
+OnUpdateComplete { '\0\s[0]\_q' + reference[0] + '.\_q\e' }
+OnUpdateFailure  { '\0\s[0]\_q' + reference[0] + '.\_q\e' }
+OnUpdateReady
+{
+	_n = 0
+	if sender == 'embryo' {
+		_n = reference[0] + 1
+	} else {
+		_n = reference[0]
+	}
+	if _n > 1 {
+		'\0\s[0]\_q' + _n + ' files exist.\_q\e'
+	} elseif _n == 1 {
+		'\0\s[0]\_q' + _n + ' file exists.\_q\e'
+	}
+}
+
+//******************************************************************************
+// mouse event
+//******************************************************************************
+OnMouseMove
+{
+	AYATEMPLATE.MouseMoveWheelFunc(0, 50, 'MouseMove')
+}
+
+OnMouseDoubleClick
+{
+	AYATEMPLATE.MouseEventExec('MouseDoubleClick');
+}
+
+MouseDoubleClick0
+{
+	_data = '"[""REQ"",""subscription"",{""kinds"":[1],""limit"":1}]"'
+	"\![send,websocket,%(sys.fnc.getRelayURL()),%(_data)]\0\_q(通信開始)\e"
+}
+
+//******************************************************************************
+// WebSocket event
+//******************************************************************************
+OnExecuteWebSocketReceive
+{
+	_json = reference[3]
+	if RE_SEARCH(_json, 'EOSE') {
+		return
+	}
+	if !RE_SEARCH(_json, '"content":"(.+?)"(,"|})') {
+		return
+	}
+	_a = RE_GETSTR()
+	_content = _a[1]
+	case _content {
+		when '!なけ' {
+			'\0\s[0]にゃーん。\e'
+			'\0\s[0]えんいー。\e'
+		}
+		when '!自害しろ' {
+			'\0\s[1]ありえへん……このワイが……。\e'
+		}
+		others {
+		}
+	}
+}
+
+//******************************************************************************
+// key event
+//******************************************************************************
+OnKeyPress
+{
+	if ISFUNC('sys.key.' + reference[0]) {
+		EVAL('sys.key.' + reference[0])
+	}
+}
+sys.key.r
+{
+	'\![reload,shiori]\0\s[0]\_qReloaded.\_q\e'
+}
+
+//******************************************************************************
+// other
+//******************************************************************************
+OnSurfaceRestore
+{
+	'\1\s[10]\0\s[0]\e'
+}

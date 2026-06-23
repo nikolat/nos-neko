@@ -1,0 +1,9 @@
+charset,UTF-8
+type,shell
+name,master
+
+craftmanw,にしき改
+craftmanurl,http://tsunatsuki.web.fc2.com/nishikikai/
+
+readme,readme.txt
+readme.charset,UTF-8

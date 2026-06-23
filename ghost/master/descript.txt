@@ -1,0 +1,11 @@
+charset,UTF-8
+type,ghost
+name,のすねこ
+sakura.name,のすねこ
+kero.name,none
+craftman,Don
+craftmanurl,https://nikolat.github.io/
+homeurl,https://raw.githubusercontent.com/nikolat/nos-neko/main/
+shiori,yaya.dll
+icon,icon.ico
+readme.charset,UTF-8
