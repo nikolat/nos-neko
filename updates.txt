@@ -14,7 +14,7 @@ file,ghost/master/yaya.dll829e1b9d193aa9756691c57758b6d163size=905216date=201
 file,ghost/master/yaya.txt5067cd4395f7670587ab730c15361a78size=2448date=2012-12-21T00:00:00
 file,ghost/master/yaya_emerg.txtd9ee78e2068ff80d809325bd4fa8228bsize=1055date=2012-12-21T00:00:00
 file,install.txt53464852008254281674f06361619e3bsize=62date=2012-12-21T00:00:00
-file,readme.txtad9cf1d87eb00ef83e1d264a8483156dsize=1271date=2012-12-21T00:00:00
+file,readme.txte80d9f5660785cf79f5ababbba3e6dd7size=1129date=2012-12-21T00:00:00
 file,shell/master/descript.txt2ba4a175d9dfe77a5794a11d4e868bfasize=155date=2012-12-21T00:00:00
 file,shell/master/readme.txtab550a52c5175605abe1bbd2880b1d48size=55date=2012-12-21T00:00:00
 file,shell/master/surface0.png394d601952fc0167714967ea3be6069bsize=967date=2012-12-21T00:00:00
